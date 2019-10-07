@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="784.05797101449286" y="122.54464285714285"/>
         </scene>
-        <!--Heroes List View Controller-->
+        <!--Characters List View Controller-->
         <scene sceneID="ss0-v0-AyF">
             <objects>
-                <viewController id="fi2-b6-YV5" customClass="HeroesListViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fi2-b6-YV5" customClass="CharactersListViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HwW-pF-DXK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,14 +95,14 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pQq-Ga-DHH">
                                 <rect key="frame" x="0.0" y="152" width="414" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IO2-54-UkV">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="IO2-54-UkV">
                                     <size key="itemSize" width="187" height="295"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wSc-DI-rxu" customClass="HeroesListCell" customModule="Marvel" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharactersListCell" id="wSc-DI-rxu" customClass="CharactersListCell" customModule="Marvel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="295"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gg9-3B-eDx">
@@ -125,8 +125,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TF1-xS-dT5">
                                                     <rect key="frame" x="0.0" y="229.5" width="187" height="65.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MG-gh-ZPZ">
-                                                            <rect key="frame" x="20" y="22.5" width="37" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="2MG-gh-ZPZ">
+                                                            <rect key="frame" x="15" y="22.5" width="162" height="20"/>
                                                             <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="17"/>
                                                             <color key="textColor" name="MarvelWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -135,7 +135,8 @@
                                                     <color key="backgroundColor" name="MarvelDark"/>
                                                     <constraints>
                                                         <constraint firstItem="2MG-gh-ZPZ" firstAttribute="centerY" secondItem="TF1-xS-dT5" secondAttribute="centerY" id="SPm-ej-cUa"/>
-                                                        <constraint firstItem="2MG-gh-ZPZ" firstAttribute="leading" secondItem="TF1-xS-dT5" secondAttribute="leading" constant="20" id="mCE-uc-NWp"/>
+                                                        <constraint firstItem="2MG-gh-ZPZ" firstAttribute="leading" secondItem="TF1-xS-dT5" secondAttribute="leading" constant="15" id="mCE-uc-NWp"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2MG-gh-ZPZ" secondAttribute="trailing" constant="10" id="pDb-yc-C7f"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

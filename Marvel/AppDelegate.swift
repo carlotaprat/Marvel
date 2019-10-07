@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if KeychainWrapper.standard.string(forKey: "privateKey") == nil {
+            KeychainWrapper.standard.set("b5a36a0a1733da3aec1921d37b934c97e1dbafb8", forKey: "privateKey")
+        }
+        
+        if KeychainWrapper.standard.string(forKey: "publicKey") == nil {
+            KeychainWrapper.standard.set("605a6c75914cb1bdbcf4ccd87c23afc9", forKey: "publicKey")
+        }
+        
         return true
     }
 
