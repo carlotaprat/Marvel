@@ -15,6 +15,18 @@
 		88C7D39B234AB26200678265 /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D39A234AB26200678265 /* MarvelTests.swift */; };
 		88C7D3AB234AB48100678265 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3AA234AB48100678265 /* LaunchViewController.swift */; };
 		88C7D3AD234AB4A700678265 /* HeroesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3AC234AB4A700678265 /* HeroesListViewController.swift */; };
+		88C7D3AF234AB81D00678265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88C7D3AE234AB81D00678265 /* Localizable.strings */; };
+		88C7D3B1234AB90D00678265 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3B0234AB90D00678265 /* UIColorExtension.swift */; };
+		88C7D3B8234ABA6A00678265 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C7D3B2234ABA6A00678265 /* RobotoCondensed-Light.ttf */; };
+		88C7D3B9234ABA6A00678265 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C7D3B3234ABA6A00678265 /* RobotoCondensed-BoldItalic.ttf */; };
+		88C7D3BA234ABA6A00678265 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C7D3B4234ABA6A00678265 /* RobotoCondensed-Bold.ttf */; };
+		88C7D3BB234ABA6A00678265 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C7D3B5234ABA6A00678265 /* RobotoCondensed-Regular.ttf */; };
+		88C7D3BC234ABA6A00678265 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C7D3B6234ABA6A00678265 /* RobotoCondensed-Italic.ttf */; };
+		88C7D3BD234ABA6A00678265 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C7D3B7234ABA6A00678265 /* RobotoCondensed-LightItalic.ttf */; };
+		88C7D3C0234ABB2700678265 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C7D3BF234ABB2700678265 /* Alamofire.framework */; };
+		88C7D3C1234ABB2700678265 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88C7D3BF234ABB2700678265 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88C7D3C4234ABB2F00678265 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C7D3C3234ABB2F00678265 /* RxSwift.framework */; };
+		88C7D3C5234ABB2F00678265 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88C7D3C3234ABB2F00678265 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +38,21 @@
 			remoteInfo = Marvel;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88C7D3C2234ABB2700678265 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88C7D3C5234ABB2F00678265 /* RxSwift.framework in Embed Frameworks */,
+				88C7D3C1234ABB2700678265 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		88C7D380234AB25E00678265 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +67,16 @@
 		88C7D39C234AB26200678265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88C7D3AA234AB48100678265 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		88C7D3AC234AB4A700678265 /* HeroesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewController.swift; sourceTree = "<group>"; };
+		88C7D3AE234AB81D00678265 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		88C7D3B0234AB90D00678265 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		88C7D3B2234ABA6A00678265 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Light.ttf"; path = "../../../../Downloads/Roboto_Condensed/RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		88C7D3B3234ABA6A00678265 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-BoldItalic.ttf"; path = "../../../../Downloads/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		88C7D3B4234ABA6A00678265 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Bold.ttf"; path = "../../../../Downloads/Roboto_Condensed/RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		88C7D3B5234ABA6A00678265 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Regular.ttf"; path = "../../../../Downloads/Roboto_Condensed/RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		88C7D3B6234ABA6A00678265 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-Italic.ttf"; path = "../../../../Downloads/Roboto_Condensed/RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		88C7D3B7234ABA6A00678265 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoCondensed-LightItalic.ttf"; path = "../../../../Downloads/Roboto_Condensed/RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		88C7D3BF234ABB2700678265 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		88C7D3C3234ABB2F00678265 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88C7D3C4234ABB2F00678265 /* RxSwift.framework in Frameworks */,
+				88C7D3C0234ABB2700678265 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +105,7 @@
 				88C7D382234AB25E00678265 /* Marvel */,
 				88C7D399234AB26200678265 /* MarvelTests */,
 				88C7D381234AB25E00678265 /* Products */,
+				88C7D3BE234ABB2600678265 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +127,7 @@
 				88C7D389234AB25E00678265 /* Main.storyboard */,
 				88C7D38E234AB26100678265 /* LaunchScreen.storyboard */,
 				88C7D391234AB26100678265 /* Info.plist */,
+				88C7D3AE234AB81D00678265 /* Localizable.strings */,
 			);
 			path = Marvel;
 			sourceTree = "<group>";
@@ -112,6 +153,7 @@
 		88C7D3A6234AB31C00678265 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				88C7D3B0234AB90D00678265 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -119,6 +161,12 @@
 		88C7D3A7234AB32900678265 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				88C7D3B4234ABA6A00678265 /* RobotoCondensed-Bold.ttf */,
+				88C7D3B3234ABA6A00678265 /* RobotoCondensed-BoldItalic.ttf */,
+				88C7D3B6234ABA6A00678265 /* RobotoCondensed-Italic.ttf */,
+				88C7D3B2234ABA6A00678265 /* RobotoCondensed-Light.ttf */,
+				88C7D3B7234ABA6A00678265 /* RobotoCondensed-LightItalic.ttf */,
+				88C7D3B5234ABA6A00678265 /* RobotoCondensed-Regular.ttf */,
 				88C7D383234AB25E00678265 /* AppDelegate.swift */,
 				88C7D385234AB25E00678265 /* SceneDelegate.swift */,
 				88C7D38C234AB26100678265 /* Assets.xcassets */,
@@ -142,6 +190,15 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
+		88C7D3BE234ABB2600678265 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88C7D3C3234ABB2F00678265 /* RxSwift.framework */,
+				88C7D3BF234ABB2700678265 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +209,8 @@
 				88C7D37C234AB25E00678265 /* Sources */,
 				88C7D37D234AB25E00678265 /* Frameworks */,
 				88C7D37E234AB25E00678265 /* Resources */,
+				88C7D3C2234ABB2700678265 /* Embed Frameworks */,
+				88C7D3C6234ABB4100678265 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,8 +283,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C7D390234AB26100678265 /* LaunchScreen.storyboard in Resources */,
+				88C7D3AF234AB81D00678265 /* Localizable.strings in Resources */,
+				88C7D3BD234ABA6A00678265 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				88C7D3B9234ABA6A00678265 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				88C7D38D234AB26100678265 /* Assets.xcassets in Resources */,
+				88C7D3BA234ABA6A00678265 /* RobotoCondensed-Bold.ttf in Resources */,
+				88C7D3BC234ABA6A00678265 /* RobotoCondensed-Italic.ttf in Resources */,
 				88C7D38B234AB25E00678265 /* Main.storyboard in Resources */,
+				88C7D3BB234ABA6A00678265 /* RobotoCondensed-Regular.ttf in Resources */,
+				88C7D3B8234ABA6A00678265 /* RobotoCondensed-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +304,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		88C7D3C6234ABB4100678265 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88C7D37C234AB25E00678265 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -245,6 +333,7 @@
 			files = (
 				88C7D384234AB25E00678265 /* AppDelegate.swift in Sources */,
 				88C7D386234AB25E00678265 /* SceneDelegate.swift in Sources */,
+				88C7D3B1234AB90D00678265 /* UIColorExtension.swift in Sources */,
 				88C7D3AD234AB4A700678265 /* HeroesListViewController.swift in Sources */,
 				88C7D3AB234AB48100678265 /* LaunchViewController.swift in Sources */,
 			);
@@ -407,6 +496,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Marvel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -424,6 +517,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Marvel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
