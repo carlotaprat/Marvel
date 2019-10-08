@@ -17,11 +17,52 @@ class CharactersListViewModel: ViewModel {
     private var total = 0
     private var limit = 0
     private var offset = 0
-    //private var fetchInProgress = false
     
-    func fetchCharacters(completionHandler: @escaping (Bool) -> Void) {
+    var onSearch = false
+    var searchingText = ""
+    
+    func resetPagination() {
+        self.characters.removeAll()
+        total = 0
+        limit = 0
+        offset = 0
+    }
+    
+    func fetchCharacters(searchText: String?, completionHandler: @escaping (Bool) -> Void) {
         
-        dataService.fetchCharacters(offset: characters.count) { response in
+        var text = searchText
+        if text == "" {
+            text = nil
+        }
+        dataService.fetchCharacters(offset: characters.count, search: text) { response in
+            
+            guard let paginatedCharacters = response else {
+                completionHandler(false)
+                return
+            }
+            
+            self.currentPage += 1
+            self.total = paginatedCharacters.total
+            self.offset = paginatedCharacters.offset
+            self.limit = paginatedCharacters.limit
+            
+            if self.currentPage == 1 {
+                self.characters.removeAll()
+            }
+            self.characters.append(contentsOf: paginatedCharacters.results)
+            
+            completionHandler(true)
+            
+        }
+        
+    }
+    
+    /*func searchCharacters(searchText: String, completionHandler: @escaping (Bool) -> Void) {
+        
+        onSearch = true
+        searchingText = searchText
+        
+        dataService.fetchCharacters(offset: characters.count, search: searchText) { response in
             
             guard let paginatedCharacters = response else {
                 completionHandler(false)
@@ -43,7 +84,9 @@ class CharactersListViewModel: ViewModel {
             
         }
         
-    }
+    }*/
+    
+   
     
     func getCharactersCount() -> Int {
         return characters.count

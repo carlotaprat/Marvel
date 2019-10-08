@@ -28,7 +28,7 @@ import Foundation
 public final class NSLoggingEventMonitor: EventMonitor {
     public let queue = DispatchQueue(label: "org.alamofire.nsLoggingEventMonitorQueue", qos: .background)
 
-    public init() {}
+    public init() { }
 
     public func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
         NSLog("URLSession: \(session), didBecomeInvalidWithError: \(error?.localizedDescription ?? "None")")
@@ -100,8 +100,8 @@ public final class NSLoggingEventMonitor: EventMonitor {
         NSLog("URLSession: \(session), downloadTask: \(downloadTask), didFinishDownloadingTo: \(location)")
     }
 
-    public func request(_ request: Request, didCreateInitialURLRequest urlRequest: URLRequest) {
-        NSLog("Request: \(request) didCreateInitialURLRequest: \(urlRequest)")
+    public func request(_ request: Request, didCreateURLRequest urlRequest: URLRequest) {
+        NSLog("Request: \(request) didCreateURLRequest: \(urlRequest)")
     }
 
     public func request(_ request: Request, didFailToCreateURLRequestWithError error: Error) {
@@ -114,10 +114,6 @@ public final class NSLoggingEventMonitor: EventMonitor {
 
     public func request(_ request: Request, didFailToAdaptURLRequest initialRequest: URLRequest, withError error: Error) {
         NSLog("Request: \(request) didFailToAdaptURLRequest \(initialRequest) withError \(error)")
-    }
-
-    public func request(_ request: Request, didCreateURLRequest urlRequest: URLRequest) {
-        NSLog("Request: \(request) didCreateURLRequest: \(urlRequest)")
     }
 
     public func request(_ request: Request, didCreateTask task: URLSessionTask) {
@@ -144,39 +140,27 @@ public final class NSLoggingEventMonitor: EventMonitor {
         NSLog("Request: \(request) didResume")
     }
 
-    public func request(_ request: Request, didResumeTask task: URLSessionTask) {
-        NSLog("Request: \(request) didResumeTask: \(task)")
-    }
-
     public func requestDidSuspend(_ request: Request) {
         NSLog("Request: \(request) didSuspend")
-    }
-
-    public func request(_ request: Request, didSuspendTask task: URLSessionTask) {
-        NSLog("Request: \(request) didSuspendTask: \(task)")
     }
 
     public func requestDidCancel(_ request: Request) {
         NSLog("Request: \(request) didCancel")
     }
 
-    public func request(_ request: Request, didCancelTask task: URLSessionTask) {
-        NSLog("Request: \(request) didCancelTask: \(task)")
-    }
-
-    public func request(_ request: DataRequest, didParseResponse response: DataResponse<Data?, Error>) {
+    public func request(_ request: DataRequest, didParseResponse response: DataResponse<Data?>) {
         NSLog("Request: \(request), didParseResponse: \(response)")
     }
 
-    public func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, Error>) {
+    public func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value>) {
         NSLog("Request: \(request), didParseResponse: \(response)")
     }
 
-    public func request(_ request: DownloadRequest, didParseResponse response: DownloadResponse<Data?, Error>) {
+    public func request(_ request: DownloadRequest, didParseResponse response: DownloadResponse<Data?>) {
         NSLog("Request: \(request), didParseResponse: \(response)")
     }
 
-    public func request<Value>(_ request: DownloadRequest, didParseResponse response: DownloadResponse<Value, Error>) {
+    public func request<Value>(_ request: DownloadRequest, didParseResponse response: DownloadResponse<Value>) {
         NSLog("Request: \(request), didParseResponse: \(response)")
     }
 
@@ -200,7 +184,7 @@ public final class NSLoggingEventMonitor: EventMonitor {
         NSLog("Request: \(request), didProvideInputStream: \(stream)")
     }
 
-    public func request(_ request: DownloadRequest, didFinishDownloadingUsing task: URLSessionTask, with result: Result<URL, Error>) {
+    public func request(_ request: DownloadRequest, didFinishDownloadingUsing task: URLSessionTask, with result: Result<URL>) {
         NSLog("Request: \(request), didFinishDownloadingUsing: \(task), withResult: \(result)")
     }
 

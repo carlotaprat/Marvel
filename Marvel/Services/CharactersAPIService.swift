@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 protocol CharactersDatabaseService {
-    func fetchCharacters(offset: Int, completionHandler: @escaping (_ response: PaginatedCharacters?) -> Void)
+    
+    func fetchCharacters(offset: Int, search: String?, completionHandler: @escaping (_ response: PaginatedCharacters?) -> Void)
 }
 
 struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
@@ -29,10 +30,14 @@ struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
     }
     
 
-    func fetchCharacters(offset: Int, completionHandler: @escaping(_ pagination: PaginatedCharacters?) -> Void) {
+    func fetchCharacters(offset: Int, search: String?, completionHandler: @escaping(_ pagination: PaginatedCharacters?) -> Void) {
         
         let url = String(format: getUrl(url: .characters))
-        let params = self.paginationParameters(offset: offset) as Parameters
+        var params = self.paginationParameters(offset: offset) as Parameters
+        
+        if let searchText = search {
+            params["nameStartsWith"] = searchText
+        }
         
         AF.request(url, method: .get, parameters: params)
             .validate()
@@ -60,6 +65,8 @@ struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
         }
         
     }
+    
+    
     
 
     

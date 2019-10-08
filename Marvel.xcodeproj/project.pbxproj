@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		889CD200234BC4D4004DD858 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889CD1FE234BC4D3004DD858 /* SwiftKeychainWrapper.framework */; };
-		889CD201234BC4D4004DD858 /* SwiftKeychainWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 889CD1FE234BC4D3004DD858 /* SwiftKeychainWrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		889CD202234BC4D4004DD858 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889CD1FF234BC4D4004DD858 /* Alamofire.framework */; };
-		889CD203234BC4D4004DD858 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 889CD1FF234BC4D4004DD858 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		889CD205234BD656004DD858 /* ImagePortrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889CD204234BD656004DD858 /* ImagePortrait.swift */; };
 		88AB686B234B5B7200648BCD /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB686A234B5B7200648BCD /* APIProtocol.swift */; };
 		88AB686D234B5E9900648BCD /* CharactersAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB686C234B5E9900648BCD /* CharactersAPIService.swift */; };
 		88AB686F234B65B100648BCD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB686E234B65B100648BCD /* ViewModel.swift */; };
 		88AB6871234B65C400648BCD /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6870234B65C400648BCD /* CharactersListViewModel.swift */; };
-		88AB6873234B666800648BCD /* ExtensionCharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6872234B666800648BCD /* ExtensionCharactersListViewController.swift */; };
+		88AB6873234B666800648BCD /* ExtensionCVCharactersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6872234B666800648BCD /* ExtensionCVCharactersListVC.swift */; };
 		88AB6876234B679400648BCD /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6875234B679400648BCD /* Character.swift */; };
 		88AB6878234B69EA00648BCD /* PaginatedCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6877234B69EA00648BCD /* PaginatedCharacters.swift */; };
 		88AB687A234B6AA100648BCD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6879234B6AA100648BCD /* Response.swift */; };
@@ -39,6 +35,7 @@
 		88C7D3C8234ACB8500678265 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3C7234ACB8500678265 /* UIViewExtension.swift */; };
 		88C7D3CB234AD02200678265 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3CA234AD02200678265 /* CustomSearchBar.swift */; };
 		88C7D3CE234AD35E00678265 /* CharactersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3CD234AD35E00678265 /* CharactersListCell.swift */; };
+		88DC6C2C234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6C2B234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		88C7D3C2234ABB2700678265 /* Embed Frameworks */ = {
+		88DC6C33234CB52D003CF4C3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				889CD201234BC4D4004DD858 /* SwiftKeychainWrapper.framework in Embed Frameworks */,
-				889CD203234BC4D4004DD858 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,14 +62,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		889CD1FE234BC4D3004DD858 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = Carthage/Build/iOS/SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
-		889CD1FF234BC4D4004DD858 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		889CD204234BD656004DD858 /* ImagePortrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePortrait.swift; sourceTree = "<group>"; };
 		88AB686A234B5B7200648BCD /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		88AB686C234B5E9900648BCD /* CharactersAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersAPIService.swift; sourceTree = "<group>"; };
 		88AB686E234B65B100648BCD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		88AB6870234B65C400648BCD /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
-		88AB6872234B666800648BCD /* ExtensionCharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCharactersListViewController.swift; sourceTree = "<group>"; };
+		88AB6872234B666800648BCD /* ExtensionCVCharactersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCVCharactersListVC.swift; sourceTree = "<group>"; };
 		88AB6875234B679400648BCD /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		88AB6877234B69EA00648BCD /* PaginatedCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedCharacters.swift; sourceTree = "<group>"; };
 		88AB6879234B6AA100648BCD /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -101,6 +94,7 @@
 		88C7D3C7234ACB8500678265 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		88C7D3CA234AD02200678265 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		88C7D3CD234AD35E00678265 /* CharactersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListCell.swift; sourceTree = "<group>"; };
+		88DC6C2B234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSBCharactersListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				889CD200234BC4D4004DD858 /* SwiftKeychainWrapper.framework in Frameworks */,
-				889CD202234BC4D4004DD858 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				88C7D3AC234AB4A700678265 /* CharactersListViewController.swift */,
-				88AB6872234B666800648BCD /* ExtensionCharactersListViewController.swift */,
+				88AB6872234B666800648BCD /* ExtensionCVCharactersListVC.swift */,
+				88DC6C2B234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift */,
 				88C7D3CC234AD33400678265 /* CollectionView Cell */,
 			);
 			path = "Heroes List";
@@ -253,8 +246,6 @@
 		88C7D3BE234ABB2600678265 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				889CD1FF234BC4D4004DD858 /* Alamofire.framework */,
-				889CD1FE234BC4D3004DD858 /* SwiftKeychainWrapper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -285,8 +276,8 @@
 				88C7D37C234AB25E00678265 /* Sources */,
 				88C7D37D234AB25E00678265 /* Frameworks */,
 				88C7D37E234AB25E00678265 /* Resources */,
-				88C7D3C2234ABB2700678265 /* Embed Frameworks */,
 				88C7D3C6234ABB4100678265 /* ShellScript */,
+				88DC6C33234CB52D003CF4C3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -383,13 +374,14 @@
 /* Begin PBXShellScriptBuildPhase section */
 		88C7D3C6234ABB4100678265 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
 			);
 			outputFileListPaths = (
@@ -420,10 +412,11 @@
 				88C7D3B1234AB90D00678265 /* UIColorExtension.swift in Sources */,
 				88C7D3AD234AB4A700678265 /* CharactersListViewController.swift in Sources */,
 				88AB686B234B5B7200648BCD /* APIProtocol.swift in Sources */,
+				88DC6C2C234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift in Sources */,
 				88AB6876234B679400648BCD /* Character.swift in Sources */,
 				88AB6878234B69EA00648BCD /* PaginatedCharacters.swift in Sources */,
 				88C7D3AB234AB48100678265 /* LaunchViewController.swift in Sources */,
-				88AB6873234B666800648BCD /* ExtensionCharactersListViewController.swift in Sources */,
+				88AB6873234B666800648BCD /* ExtensionCVCharactersListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

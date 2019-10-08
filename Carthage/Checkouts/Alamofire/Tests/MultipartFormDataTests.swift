@@ -118,9 +118,9 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
 
             let expectedString = (
                 BoundaryGenerator.boundary(forBoundaryType: .initial, boundaryKey: boundary) +
-                    "Content-Disposition: form-data; name=\"data\"\(crlf)\(crlf)" +
-                    "Lorem ipsum dolor sit amet." +
-                    BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
+                "Content-Disposition: form-data; name=\"data\"\(crlf)\(crlf)" +
+                "Lorem ipsum dolor sit amet." +
+                BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
             )
             let expectedData = Data(expectedString.utf8)
 
@@ -157,17 +157,17 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
 
             let expectedString = (
                 BoundaryGenerator.boundary(forBoundaryType: .initial, boundaryKey: boundary) +
-                    "Content-Disposition: form-data; name=\"french\"\(crlf)\(crlf)" +
-                    "français" +
-                    BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
-                    "Content-Disposition: form-data; name=\"japanese\"\(crlf)" +
-                    "Content-Type: text/plain\(crlf)\(crlf)" +
-                    "日本語" +
-                    BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
-                    "Content-Disposition: form-data; name=\"emoji\"\(crlf)" +
-                    "Content-Type: text/plain\(crlf)\(crlf)" +
-                    "😃👍🏻🍻🎉" +
-                    BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
+                "Content-Disposition: form-data; name=\"french\"\(crlf)\(crlf)" +
+                "français" +
+                BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
+                "Content-Disposition: form-data; name=\"japanese\"\(crlf)" +
+                "Content-Type: text/plain\(crlf)\(crlf)" +
+                "日本語" +
+                BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
+                "Content-Disposition: form-data; name=\"emoji\"\(crlf)" +
+                "Content-Type: text/plain\(crlf)\(crlf)" +
+                "😃👍🏻🍻🎉" +
+                BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
             )
             let expectedData = Data(expectedString.utf8)
 
@@ -201,8 +201,8 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: unicornImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -240,15 +240,15 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: unicornImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"rainbow\"; filename=\"rainbow.jpg\"\(crlf)" +
-                    "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: rainbowImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -265,11 +265,13 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
         let unicornDataLength = UInt64((try! Data(contentsOf: unicornImageURL)).count)
         let unicornStream = InputStream(url: unicornImageURL)!
 
-        multipartFormData.append(unicornStream,
-                                 withLength: unicornDataLength,
-                                 name: "unicorn",
-                                 fileName: "unicorn.png",
-                                 mimeType: "image/png")
+        multipartFormData.append(
+            unicornStream,
+            withLength: unicornDataLength,
+            name: "unicorn",
+            fileName: "unicorn.png",
+            mimeType: "image/png"
+        )
 
         var encodedData: Data?
 
@@ -290,8 +292,8 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: unicornImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -312,16 +314,20 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
         let rainbowDataLength = UInt64((try! Data(contentsOf: rainbowImageURL)).count)
         let rainbowStream = InputStream(url: rainbowImageURL)!
 
-        multipartFormData.append(unicornStream,
-                                 withLength: unicornDataLength,
-                                 name: "unicorn",
-                                 fileName: "unicorn.png",
-                                 mimeType: "image/png")
-        multipartFormData.append(rainbowStream,
-                                 withLength: rainbowDataLength,
-                                 name: "rainbow",
-                                 fileName: "rainbow.jpg",
-                                 mimeType: "image/jpeg")
+        multipartFormData.append(
+            unicornStream,
+            withLength: unicornDataLength,
+            name: "unicorn",
+            fileName: "unicorn.png",
+            mimeType: "image/png"
+        )
+        multipartFormData.append(
+            rainbowStream,
+            withLength: rainbowDataLength,
+            name: "rainbow",
+            fileName: "rainbow.jpg",
+            mimeType: "image/jpeg"
+        )
 
         var encodedData: Data?
 
@@ -342,15 +348,15 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: unicornImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"rainbow\"; filename=\"rainbow.jpg\"\(crlf)" +
-                    "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: rainbowImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -373,11 +379,13 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
 
         multipartFormData.append(loremData, withName: "lorem")
         multipartFormData.append(unicornImageURL, withName: "unicorn")
-        multipartFormData.append(rainbowStream,
-                                 withLength: rainbowDataLength,
-                                 name: "rainbow",
-                                 fileName: "rainbow.jpg",
-                                 mimeType: "image/jpeg")
+        multipartFormData.append(
+            rainbowStream,
+            withLength: rainbowDataLength,
+            name: "rainbow",
+            fileName: "rainbow.jpg",
+            mimeType: "image/jpeg"
+        )
 
         var encodedData: Data?
 
@@ -398,21 +406,21 @@ class MultipartFormDataEncodingTestCase: BaseTestCase {
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedData.append(Data(
                 "Content-Disposition: form-data; name=\"lorem\"\(crlf)\(crlf)".utf8
-            )
+                )
             )
             expectedData.append(loremData)
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: unicornImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedData.append(Data((
                 "Content-Disposition: form-data; name=\"rainbow\"; filename=\"rainbow.jpg\"\(crlf)" +
-                    "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
+                )
             )
             expectedData.append(try! Data(contentsOf: rainbowImageURL))
             expectedData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -451,9 +459,9 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
             let boundary = multipartFormData.boundary
 
             let expectedString = BoundaryGenerator.boundary(forBoundaryType: .initial, boundaryKey: boundary) +
-                "Content-Disposition: form-data; name=\"data\"\(crlf)\(crlf)" +
-                "Lorem ipsum dolor sit amet." +
-                BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
+                                 "Content-Disposition: form-data; name=\"data\"\(crlf)\(crlf)" +
+                                 "Lorem ipsum dolor sit amet." +
+                                 BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
             let expectedFileData = Data(expectedString.utf8)
 
             XCTAssertEqual(fileData, expectedFileData, "file data should match expected file data")
@@ -492,15 +500,15 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
 
             let expectedString = (
                 BoundaryGenerator.boundary(forBoundaryType: .initial, boundaryKey: boundary) +
-                    "Content-Disposition: form-data; name=\"french\"\(crlf)\(crlf)" +
-                    "français" +
-                    BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
-                    "Content-Disposition: form-data; name=\"japanese\"\(crlf)\(crlf)" +
-                    "日本語" +
-                    BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
-                    "Content-Disposition: form-data; name=\"emoji\"\(crlf)\(crlf)" +
-                    "😃👍🏻🍻🎉" +
-                    BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
+                "Content-Disposition: form-data; name=\"french\"\(crlf)\(crlf)" +
+                "français" +
+                BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
+                "Content-Disposition: form-data; name=\"japanese\"\(crlf)\(crlf)" +
+                "日本語" +
+                BoundaryGenerator.boundary(forBoundaryType: .encapsulated, boundaryKey: boundary) +
+                "Content-Disposition: form-data; name=\"emoji\"\(crlf)\(crlf)" +
+                "😃👍🏻🍻🎉" +
+                BoundaryGenerator.boundary(forBoundaryType: .final, boundaryKey: boundary)
             )
             let expectedFileData = Data(expectedString.utf8)
 
@@ -537,8 +545,8 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: unicornImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -579,15 +587,15 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: unicornImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"rainbow\"; filename=\"rainbow.jpg\"\(crlf)" +
-                    "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: rainbowImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -607,11 +615,13 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
         let unicornDataLength = UInt64((try! Data(contentsOf: unicornImageURL)).count)
         let unicornStream = InputStream(url: unicornImageURL)!
 
-        multipartFormData.append(unicornStream,
-                                 withLength: unicornDataLength,
-                                 name: "unicorn",
-                                 fileName: "unicorn.png",
-                                 mimeType: "image/png")
+        multipartFormData.append(
+            unicornStream,
+            withLength: unicornDataLength,
+            name: "unicorn",
+            fileName: "unicorn.png",
+            mimeType: "image/png"
+        )
 
         var encodingError: Error?
 
@@ -632,8 +642,8 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: unicornImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -657,16 +667,21 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
         let rainbowDataLength = UInt64((try! Data(contentsOf: rainbowImageURL)).count)
         let rainbowStream = InputStream(url: rainbowImageURL)!
 
-        multipartFormData.append(unicornStream,
-                                 withLength: unicornDataLength,
-                                 name: "unicorn",
-                                 fileName: "unicorn.png",
-                                 mimeType: "image/png")
-        multipartFormData.append(rainbowStream,
-                                 withLength: rainbowDataLength,
-                                 name: "rainbow",
-                                 fileName: "rainbow.jpg",
-                                 mimeType: "image/jpeg")
+        multipartFormData.append(
+            unicornStream,
+            withLength: unicornDataLength,
+            name: "unicorn",
+            fileName: "unicorn.png",
+            mimeType: "image/png"
+        )
+        multipartFormData.append(
+            rainbowStream,
+            withLength: rainbowDataLength,
+            name: "rainbow",
+            fileName: "rainbow.jpg",
+            mimeType: "image/jpeg"
+        )
+
 
         var encodingError: Error?
 
@@ -687,15 +702,15 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: unicornImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"rainbow\"; filename=\"rainbow.jpg\"\(crlf)" +
-                    "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: rainbowImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -721,11 +736,13 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
 
         multipartFormData.append(loremData, withName: "lorem")
         multipartFormData.append(unicornImageURL, withName: "unicorn")
-        multipartFormData.append(rainbowStream,
-                                 withLength: rainbowDataLength,
-                                 name: "rainbow",
-                                 fileName: "rainbow.jpg",
-                                 mimeType: "image/jpeg")
+        multipartFormData.append(
+            rainbowStream,
+            withLength: rainbowDataLength,
+            name: "rainbow",
+            fileName: "rainbow.jpg",
+            mimeType: "image/jpeg"
+        )
 
         var encodingError: Error?
 
@@ -746,21 +763,21 @@ class MultipartFormDataWriteEncodedDataToDiskTestCase: BaseTestCase {
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .initial, boundaryKey: boundary))
             expectedFileData.append(Data(
                 "Content-Disposition: form-data; name=\"lorem\"\(crlf)\(crlf)".utf8
-            )
+                )
             )
             expectedFileData.append(loremData)
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"unicorn\"; filename=\"unicorn.png\"\(crlf)" +
-                    "Content-Type: image/png\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/png\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: unicornImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .encapsulated, boundaryKey: boundary))
             expectedFileData.append(Data((
                 "Content-Disposition: form-data; name=\"rainbow\"; filename=\"rainbow.jpg\"\(crlf)" +
-                    "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
-            )
+                "Content-Type: image/jpeg\(crlf)\(crlf)").utf8
+                )
             )
             expectedFileData.append(try! Data(contentsOf: rainbowImageURL))
             expectedFileData.append(BoundaryGenerator.boundaryData(boundaryType: .final, boundaryKey: boundary))
@@ -793,8 +810,14 @@ class MultipartFormDataFailureTestCase: BaseTestCase {
         // Then
         XCTAssertNotNil(encodingError, "encoding error should not be nil")
 
-        XCTAssertEqual(encodingError?.asAFError?.isBodyPartFilenameInvalid, true)
-        XCTAssertEqual(encodingError?.asAFError?.url, fileURL)
+        if let error = encodingError?.asAFError {
+            XCTAssertTrue(error.isBodyPartFilenameInvalid)
+
+            let expectedFailureReason = "The URL provided does not have a valid filename: \(fileURL)"
+            XCTAssertEqual(error.localizedDescription, expectedFailureReason, "failure reason does not match expected value")
+        } else {
+            XCTFail("Error should be AFError.")
+        }
     }
 
     func testThatAppendingFileBodyPartThatIsNotFileURLReturnsError() {
@@ -814,8 +837,15 @@ class MultipartFormDataFailureTestCase: BaseTestCase {
 
         // Then
         XCTAssertNotNil(encodingError, "encoding error should not be nil")
-        XCTAssertEqual(encodingError?.asAFError?.isBodyPartURLInvalid, true)
-        XCTAssertEqual(encodingError?.asAFError?.url, fileURL)
+
+        if let error = encodingError?.asAFError {
+            XCTAssertTrue(error.isBodyPartURLInvalid)
+
+            let expectedFailureReason = "The URL provided is not a file URL: \(fileURL)"
+            XCTAssertEqual(error.localizedDescription, expectedFailureReason, "error failure reason does not match expected value")
+        } else {
+            XCTFail("Error should be AFError.")
+        }
     }
 
     func testThatAppendingFileBodyPartThatIsNotReachableReturnsError() {
@@ -837,8 +867,11 @@ class MultipartFormDataFailureTestCase: BaseTestCase {
         // Then
         XCTAssertNotNil(encodingError, "encoding error should not be nil")
 
-        XCTAssertEqual(encodingError?.asAFError?.isBodyPartFileNotReachableWithError, true)
-        XCTAssertEqual(encodingError?.asAFError?.url, fileURL)
+        if let error = encodingError?.asAFError {
+            XCTAssertTrue(error.isBodyPartFileNotReachableWithError)
+        } else {
+            XCTFail("Error should be AFError.")
+        }
     }
 
     func testThatAppendingFileBodyPartThatIsDirectoryReturnsError() {
@@ -858,8 +891,15 @@ class MultipartFormDataFailureTestCase: BaseTestCase {
 
         // Then
         XCTAssertNotNil(encodingError, "encoding error should not be nil")
-        XCTAssertEqual(encodingError?.asAFError?.isBodyPartFileIsDirectory, true)
-        XCTAssertEqual(encodingError?.asAFError?.url, directoryURL)
+
+        if let error = encodingError?.asAFError {
+            XCTAssertTrue(error.isBodyPartFileIsDirectory)
+
+            let expectedFailureReason = "The URL provided is a directory: \(directoryURL)"
+            XCTAssertEqual(error.localizedDescription, expectedFailureReason, "error failure reason does not match expected value")
+        } else {
+            XCTFail("Error should be AFError.")
+        }
     }
 
     func testThatWritingEncodedDataToExistingFileURLFails() {
@@ -869,7 +909,7 @@ class MultipartFormDataFailureTestCase: BaseTestCase {
         var writerError: Error?
 
         do {
-            try "dummy data".write(to: fileURL, atomically: true, encoding: .utf8)
+            try "dummy data".write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
         } catch {
             writerError = error
         }
@@ -890,7 +930,10 @@ class MultipartFormDataFailureTestCase: BaseTestCase {
         // Then
         XCTAssertNil(writerError, "writer error should be nil")
         XCTAssertNotNil(encodingError, "encoding error should not be nil")
-        XCTAssertEqual(encodingError?.asAFError?.isOutputStreamFileAlreadyExists, true)
+
+        if let encodingError = encodingError?.asAFError {
+            XCTAssertTrue(encodingError.isOutputStreamFileAlreadyExists)
+        }
     }
 
     func testThatWritingEncodedDataToBadURLFails() {
@@ -912,6 +955,9 @@ class MultipartFormDataFailureTestCase: BaseTestCase {
 
         // Then
         XCTAssertNotNil(encodingError, "encoding error should not be nil")
-        XCTAssertEqual(encodingError?.asAFError?.isOutputStreamURLInvalid, true)
+
+        if let encodingError = encodingError?.asAFError {
+            XCTAssertTrue(encodingError.isOutputStreamURLInvalid)
+        }
     }
 }

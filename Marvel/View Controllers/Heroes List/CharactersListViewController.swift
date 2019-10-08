@@ -7,16 +7,18 @@
 //
 
 import UIKit
-import RxSwift
 
 class CharactersListViewController: UIViewController {
 
     @IBOutlet weak var searchBar: CustomSearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noResultsView: UIView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var viewModel: CharactersListViewModel = CharactersListViewModel()
     let apiService: CharactersDatabaseService = CharactersAPIService()
-        
+    
+    var searchText: String = ""
     
     
     var layout: UICollectionViewFlowLayout = {
@@ -24,12 +26,12 @@ class CharactersListViewController: UIViewController {
         let itemsPerRow = CGFloat(3.0)
         let itemsInset = CGFloat(10.0)
         let width = (UIScreen.main.bounds.size.width - ((itemsPerRow + 1) * itemsInset)) / 3
-        layout.itemSize = CGSize(width: width, height: 200)
+        layout.itemSize = CGSize(width: width, height: 2 * width)
         layout.sectionInset = UIEdgeInsets(top: itemsInset, left: itemsInset, bottom: itemsInset, right: itemsInset)
         layout.minimumInteritemSpacing = 0.0
         return layout
     }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,41 +41,45 @@ class CharactersListViewController: UIViewController {
     }
     
     func setup() {
-        
+                
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
         collectionView.collectionViewLayout = layout
-                
+        
+        self.searchText = searchBar.text ?? ""
+        
+        searchBar.delegate = self as! UISearchBarDelegate
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     func fetchCharacters() {
-        
-        viewModel.fetchCharacters { _ in
-            if self.viewModel.characters.count != 0 {
-                self.collectionView.reloadData()
-            }
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        viewModel.fetchCharacters(searchText: searchText) { _ in
+            //if self.viewModel.characters.count != 0 {
+            self.collectionView.reloadData()
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+
+            //}
         }
     }
     
-   /* func searchCharacters() {
-        
-        let characters = viewModel.fetchCharacters()
-        characters.subscribe(onNext: { (character) in
-            
-            // self.characters.append(character)
-            
-        }, onError: { (error) in
-            
-        }, onCompleted: {
-            
-            if self.viewModel.characters.count != 0 {
-                self.collectionView.reloadData()
-            }
-            
-        }).disposed(by: disposeBag)
-        
+    @objc func reload() {
+        viewModel.resetPagination()
+        self.searchText = searchBar.text ?? ""
+        self.fetchCharacters()
+    }
+    
+    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.searchBar.endEditing(true)
     }*/
     
+    @objc func hideKeyboard() {
+        self.searchBar.endEditing(true)
+
+    }
 
 }

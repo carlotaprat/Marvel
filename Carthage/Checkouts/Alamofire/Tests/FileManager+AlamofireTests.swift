@@ -25,6 +25,7 @@
 import Foundation
 
 extension FileManager {
+
     // MARK: - Common Directories
 
     static var temporaryDirectoryPath: String {
