@@ -40,9 +40,6 @@ class Response: Decodable {
         } else {
             self.data = nil
         }
-        
-        
-        
     }
     
 }

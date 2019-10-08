@@ -11,7 +11,7 @@ class CharactersListCell: UICollectionViewCell {
     
     func setupCell(character: Character) {
         nameLabel.text = character.name
-        if let url = URL(string: character.imgPortrait?.url ?? "") {
+        if let url = URL(string: character.picture?.urlPortrait ?? "") {
             imageView.kf.setImage(with: url)
 
         }

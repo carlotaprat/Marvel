@@ -8,9 +8,10 @@
 
 import Foundation
 
-class ImagePortrait: Decodable {
+class ImageMarvel: Decodable {
     
-    var url: String = ""
+    var urlPortrait: String = ""
+    var urlLandscape: String = ""
     
     enum ImageCodingKeys: String, CodingKey {
         case path
@@ -19,13 +20,15 @@ class ImagePortrait: Decodable {
     
     required init(from decoder: Decoder) throws {
         
-        let variant = "portrait_xlarge"
+        let variantPortrait = "portrait_xlarge"
+        let variantLandscape = "landscape_xlarge"
         
         let imageContainer = try decoder.container(keyedBy: ImageCodingKeys.self)
 
         if let path = try imageContainer.decodeIfPresent(String.self, forKey: .path),
             let ext = try imageContainer.decodeIfPresent(String.self, forKey: .ext) {
-            self.url = path + "/" + variant + "." + ext
+            self.urlPortrait = path + "/" + variantPortrait + "." + ext
+            self.urlLandscape = path + "/" + variantLandscape + "." + ext
         }
 
     }

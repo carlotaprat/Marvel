@@ -243,6 +243,9 @@
                                         <state key="normal" title="Back" image="chevron.left">
                                             <color key="titleColor" name="MarvelWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="back:" destination="gQg-rp-fwz" eventType="touchUpInside" id="TgU-qB-0bj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="MarvelLight"/>
@@ -256,7 +259,7 @@
                                     <constraint firstItem="iKm-BX-WdC" firstAttribute="top" secondItem="SR5-rp-Lug" secondAttribute="top" constant="10" id="xC8-r9-1fw"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1D-hM-HVx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1D-hM-HVx">
                                 <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0X-re-87f">
@@ -432,6 +435,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="76d-ep-Vk3"/>
                     </view>
+                    <connections>
+                        <outlet property="comicsLabel" destination="YhZ-qO-RIs" id="kRB-2M-I1A"/>
+                        <outlet property="comicsTitleLabel" destination="84w-fY-mc6" id="bec-cA-WuD"/>
+                        <outlet property="descriptionLabel" destination="5cz-uM-s95" id="qSJ-sT-Buy"/>
+                        <outlet property="eventsLabel" destination="heU-PV-6hm" id="l28-sT-jQ2"/>
+                        <outlet property="eventsTitleLabel" destination="y9p-jz-zoa" id="6rD-QG-NC8"/>
+                        <outlet property="imageView" destination="B3u-c0-399" id="mee-0a-hO3"/>
+                        <outlet property="nameLabel" destination="rfs-Dy-dZM" id="ypQ-8o-3FP"/>
+                        <outlet property="seriesLabel" destination="ZGX-pQ-g1W" id="NvL-s3-13y"/>
+                        <outlet property="seriesTitleLabel" destination="wcw-ar-Iar" id="j1S-O7-wEb"/>
+                        <outlet property="storiesLabel" destination="OPk-7h-fLK" id="10l-e7-8p1"/>
+                        <outlet property="storiesTitleLabel" destination="P6K-pv-ffT" id="iwM-7j-LHl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZl-6Z-etg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,16 +8,18 @@
 
 import Foundation
 
+
+
 class Character: Decodable {
     
     var characterId: Int?
     var name: String?
     var description: String?
-    var imgPortrait: ImagePortrait?
-    /*var comics: [Comic] = []
-    var events: [Event] = []
-    var stories: [Story] = []
-    var series: [Serie] = []*/
+    var picture: ImageMarvel?
+    var series: [String] = []
+    var comics: [String] = []
+    var events: [String] = []
+    var stories: [String] = []
     
     // enum CodingKeys: String, CodingKey
     
@@ -26,8 +28,11 @@ class Character: Decodable {
         case name = "name"
         case description = "description"
         case imgPortrait = "thumbnail"
+        case seriesCK = "series"
+        case storiesCK = "stories"
+        case eventsCK = "events"
+        case comicsCK = "comics"
     }
-    
     
     required init(from decoder: Decoder) throws {
         
@@ -45,9 +50,34 @@ class Character: Decodable {
             self.description = description
         }
         
-        if let img = try characterContainer.decodeIfPresent(ImagePortrait.self, forKey: .imgPortrait) {
-            self.imgPortrait = img
+        if let img = try characterContainer.decodeIfPresent(ImageMarvel.self, forKey: .imgPortrait) {
+            self.picture = img
+        }
+        
+        if let serieTmp = try characterContainer.decodeIfPresent(SerieObject.self, forKey: .seriesCK) {
+            self.series = serieTmp.items.map({ (serie) -> String in
+                serie.name
+            })
+        }
+        
+        if let storyTmp = try characterContainer.decodeIfPresent(StoryObject.self, forKey: .storiesCK) {
+            self.stories = storyTmp.items.map({ (story) -> String in
+                story.name
+            })
+        }
+        
+        if let comicTmp = try characterContainer.decodeIfPresent(ComicObject.self, forKey: .comicsCK) {
+            self.comics = comicTmp.items.map({ (comic) -> String in
+                comic.name
+            })
+        }
+        
+        if let eventTmp = try characterContainer.decodeIfPresent(EventObject.self, forKey: .eventsCK) {
+            self.events = eventTmp.items.map({ (event) -> String in
+                event.name
+            })
         }
     }
     
 }
+

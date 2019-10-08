@@ -53,7 +53,7 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
         
         print("TOUCHEEE")
         if let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CharacterDetailVC") as? CharacterDetailViewController {
-            
+            vc.character = self.viewModel.getCharacter(index: indexPath.row)
             self.navigationController?.pushViewController(vc, animated: true)
 
         }
