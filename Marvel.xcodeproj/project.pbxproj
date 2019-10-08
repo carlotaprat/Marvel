@@ -12,7 +12,6 @@
 		88AB686D234B5E9900648BCD /* CharactersAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB686C234B5E9900648BCD /* CharactersAPIService.swift */; };
 		88AB686F234B65B100648BCD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB686E234B65B100648BCD /* ViewModel.swift */; };
 		88AB6871234B65C400648BCD /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6870234B65C400648BCD /* CharactersListViewModel.swift */; };
-		88AB6873234B666800648BCD /* ExtensionCVCharactersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6872234B666800648BCD /* ExtensionCVCharactersListVC.swift */; };
 		88AB6876234B679400648BCD /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6875234B679400648BCD /* Character.swift */; };
 		88AB6878234B69EA00648BCD /* PaginatedCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6877234B69EA00648BCD /* PaginatedCharacters.swift */; };
 		88AB687A234B6AA100648BCD /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AB6879234B6AA100648BCD /* Response.swift */; };
@@ -36,6 +35,8 @@
 		88C7D3CB234AD02200678265 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3CA234AD02200678265 /* CustomSearchBar.swift */; };
 		88C7D3CE234AD35E00678265 /* CharactersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7D3CD234AD35E00678265 /* CharactersListCell.swift */; };
 		88DC6C2C234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6C2B234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift */; };
+		88EA4B35234CD5D8001723B0 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EA4B34234CD5D8001723B0 /* CharacterDetailViewController.swift */; };
+		88EA4B37234CD6A8001723B0 /* ExtensionCVCharactersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EA4B36234CD6A8001723B0 /* ExtensionCVCharactersListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +68,6 @@
 		88AB686C234B5E9900648BCD /* CharactersAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersAPIService.swift; sourceTree = "<group>"; };
 		88AB686E234B65B100648BCD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		88AB6870234B65C400648BCD /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
-		88AB6872234B666800648BCD /* ExtensionCVCharactersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCVCharactersListVC.swift; sourceTree = "<group>"; };
 		88AB6875234B679400648BCD /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		88AB6877234B69EA00648BCD /* PaginatedCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedCharacters.swift; sourceTree = "<group>"; };
 		88AB6879234B6AA100648BCD /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -95,6 +95,8 @@
 		88C7D3CA234AD02200678265 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		88C7D3CD234AD35E00678265 /* CharactersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListCell.swift; sourceTree = "<group>"; };
 		88DC6C2B234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSBCharactersListVC.swift; sourceTree = "<group>"; };
+		88EA4B34234CD5D8001723B0 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		88EA4B36234CD6A8001723B0 /* ExtensionCVCharactersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCVCharactersListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		88C7D3A5234AB2E600678265 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				88EA4B33234CD5A3001723B0 /* Character Detail */,
 				88C7D3A9234AB3CA00678265 /* Launch */,
 				88C7D3A8234AB38300678265 /* Heroes List */,
 			);
@@ -227,8 +230,8 @@
 		88C7D3A8234AB38300678265 /* Heroes List */ = {
 			isa = PBXGroup;
 			children = (
+				88EA4B36234CD6A8001723B0 /* ExtensionCVCharactersListVC.swift */,
 				88C7D3AC234AB4A700678265 /* CharactersListViewController.swift */,
-				88AB6872234B666800648BCD /* ExtensionCVCharactersListVC.swift */,
 				88DC6C2B234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift */,
 				88C7D3CC234AD33400678265 /* CollectionView Cell */,
 			);
@@ -264,6 +267,14 @@
 				88C7D3CD234AD35E00678265 /* CharactersListCell.swift */,
 			);
 			path = "CollectionView Cell";
+			sourceTree = "<group>";
+		};
+		88EA4B33234CD5A3001723B0 /* Character Detail */ = {
+			isa = PBXGroup;
+			children = (
+				88EA4B34234CD5D8001723B0 /* CharacterDetailViewController.swift */,
+			);
+			path = "Character Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,8 +412,10 @@
 			files = (
 				88C7D3CB234AD02200678265 /* CustomSearchBar.swift in Sources */,
 				88C7D3CE234AD35E00678265 /* CharactersListCell.swift in Sources */,
+				88EA4B35234CD5D8001723B0 /* CharacterDetailViewController.swift in Sources */,
 				88C7D3C8234ACB8500678265 /* UIViewExtension.swift in Sources */,
 				88AB686F234B65B100648BCD /* ViewModel.swift in Sources */,
+				88EA4B37234CD6A8001723B0 /* ExtensionCVCharactersListVC.swift in Sources */,
 				88C7D384234AB25E00678265 /* AppDelegate.swift in Sources */,
 				88AB687A234B6AA100648BCD /* Response.swift in Sources */,
 				88AB686D234B5E9900648BCD /* CharactersAPIService.swift in Sources */,
@@ -416,7 +429,6 @@
 				88AB6876234B679400648BCD /* Character.swift in Sources */,
 				88AB6878234B69EA00648BCD /* PaginatedCharacters.swift in Sources */,
 				88C7D3AB234AB48100678265 /* LaunchViewController.swift in Sources */,
-				88AB6873234B666800648BCD /* ExtensionCVCharactersListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

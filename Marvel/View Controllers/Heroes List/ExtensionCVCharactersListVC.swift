@@ -14,10 +14,10 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if self.viewModel.getCharactersCount() == 0 {
-            self.noResultsView.isHidden = false
+            // self.noResultsView.isHidden = false
             return 0
         } else {
-            self.noResultsView.isHidden = true
+            // self.noResultsView.isHidden = true
             return self.viewModel.getCharactersCount()
         }
     }
@@ -29,6 +29,7 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
 
         }
         
+     
         guard let character = self.viewModel.getCharacter(index: indexPath.row) else {
             return UICollectionViewCell()
 
@@ -47,6 +48,16 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("TOUCHEEE")
+        if let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CharacterDetailVC") as? CharacterDetailViewController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        }
+    }
     
     
     

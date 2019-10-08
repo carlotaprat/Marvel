@@ -20,4 +20,5 @@ extension CharactersListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.hideKeyboard()
     }
+    
 }
