@@ -21,7 +21,7 @@ class CharactersListViewModel: ViewModel {
     
     func fetchCharacters(completionHandler: @escaping (Bool) -> Void) {
         
-        dataService.fetchCharacters(page: currentPage, limit: limit) { response in
+        dataService.fetchCharacters(offset: characters.count) { response in
             
             guard let paginatedCharacters = response else {
                 completionHandler(false)
@@ -43,7 +43,6 @@ class CharactersListViewModel: ViewModel {
             
         }
         
-        
     }
     
     func getCharactersCount() -> Int {
@@ -56,5 +55,9 @@ class CharactersListViewModel: ViewModel {
         }
         
         return characters[index]
+    }
+    
+    func getTotalCharacters() -> Int {
+        return total
     }
 }

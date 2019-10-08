@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 protocol CharactersDatabaseService {
-    func fetchCharacters(page: Int, limit: Int, completionHandler: @escaping (_ response: PaginatedCharacters?) -> Void)
+    func fetchCharacters(offset: Int, completionHandler: @escaping (_ response: PaginatedCharacters?) -> Void)
 }
 
 struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
@@ -29,10 +29,10 @@ struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
     }
     
 
-    func fetchCharacters(page: Int, limit: Int, completionHandler: @escaping(_ pagination: PaginatedCharacters?) -> Void) {
+    func fetchCharacters(offset: Int, completionHandler: @escaping(_ pagination: PaginatedCharacters?) -> Void) {
         
         let url = String(format: getUrl(url: .characters))
-        let params = self.paginationParameters(offset: page * limit) as Parameters
+        let params = self.paginationParameters(offset: offset) as Parameters
         
         AF.request(url, method: .get, parameters: params)
             .validate()

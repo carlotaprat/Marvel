@@ -27,6 +27,13 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
 
         }
         
+        let currentCharactersCount = viewModel.getCharactersCount()
+        
+        if currentCharactersCount < viewModel.getTotalCharacters() &&
+            indexPath.row == (currentCharactersCount - 6) {
+            self.fetchCharacters()
+        }
+        
         cell.setupCell(character: character)
         
         return cell

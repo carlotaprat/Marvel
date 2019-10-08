@@ -10,7 +10,7 @@ class CharactersListCell: UICollectionViewCell {
     
     func setupCell(character: Character) {
         nameLabel.text = character.name
-        
+        // imageView.image = UIImage(na)
     }
   /*  func setupWithHero(hero: Hero) {
         imageView.image = UIImage()
