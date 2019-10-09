@@ -1,6 +1,6 @@
 import Foundation
 
-class CharacterListCellViewModel: ViewModel {
+class CharacterListCellViewModel {
     
     private var character: Character?
     

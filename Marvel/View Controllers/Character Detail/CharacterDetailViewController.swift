@@ -16,6 +16,11 @@ class CharacterDetailViewController: UIViewController {
     
     var viewModel: CharacterDetailViewModel = CharacterDetailViewModel()
 
+    private let comicsString = "comics"
+    private let seriesString = "series"
+    private let storiesString = "stories"
+    private let eventsString = "events"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -31,10 +36,10 @@ class CharacterDetailViewController: UIViewController {
             imageView.kf.setImage(with: url)
         }
         
-        comicsTitleLabel.text = NSLocalizedString("comics", comment: "")
-        seriesTitleLabel.text = NSLocalizedString("series", comment: "")
-        storiesTitleLabel.text = NSLocalizedString("stories", comment: "")
-        eventsTitleLabel.text = NSLocalizedString("events", comment: "")
+        comicsTitleLabel.text = comicsString.localized
+        seriesTitleLabel.text = seriesString.localized
+        storiesTitleLabel.text = storiesString.localized
+        eventsTitleLabel.text = eventsString.localized
         
         comicsLabel.text = viewModel.getFormattedArray(feature: .comic)
         seriesLabel.text = viewModel.getFormattedArray(feature: .serie)

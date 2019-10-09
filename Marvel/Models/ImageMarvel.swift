@@ -21,14 +21,12 @@ class ImageMarvel: Decodable {
         if let path = try imageContainer.decodeIfPresent(String.self, forKey: .path),
             let ext = try imageContainer.decodeIfPresent(String.self, forKey: .ext) {
             generatePath(path: path, ext: ext)
-           
         }
     }
     
     func generatePath(path: String, ext: String) {
         let variantPortrait = "portrait_xlarge"
         let variantLandscape = "landscape_xlarge"
-        
         self.urlPortrait = path + "/" + variantPortrait + "." + ext
         self.urlLandscape = path + "/" + variantLandscape + "." + ext
     }
