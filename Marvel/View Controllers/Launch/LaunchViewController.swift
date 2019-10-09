@@ -18,7 +18,7 @@ class LaunchViewController: UIViewController {
         
         self.imageView.setAnchorPoint(point: CGPoint(x: 0.0, y: 1.0))
 
-        UIView.animate(withDuration: 2.5, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 2.5, delay: 0.0, options: .curveEaseIn, animations: {
             
             self.imageView.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
         }, completion: { (true) in

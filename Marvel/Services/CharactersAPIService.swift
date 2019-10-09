@@ -11,7 +11,7 @@ import Alamofire
 
 protocol CharactersDatabaseService {
     
-    func fetchCharacters(offset: Int, search: String?, completionHandler: @escaping (_ response: PaginatedCharacters?) -> Void)
+    func fetchCharacters(offset: Int, search: String?, onSuccess: @escaping (_ response: PaginatedCharacters?) -> Void, onError: @escaping (_ error: MarvelError) -> Void)
 }
 
 struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
@@ -30,7 +30,7 @@ struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
     }
     
 
-    func fetchCharacters(offset: Int, search: String?, completionHandler: @escaping(_ pagination: PaginatedCharacters?) -> Void) {
+    func fetchCharacters(offset: Int, search: String?, onSuccess: @escaping(_ pagination: PaginatedCharacters?) -> Void, onError: @escaping (_ error: MarvelError) -> Void) {
         
         let url = String(format: getUrl(url: .characters))
         var params = self.paginationParameters(offset: offset) as Parameters
@@ -46,21 +46,20 @@ struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
                 case .success:
                     
                     guard let data = response.data else {
+                        onError(.internalError)
                         return
                     }
                     
                     do {
-                        
                         let request = try JSONDecoder().decode(Response.self, from: data)
-                        completionHandler(request.data)
+                        onSuccess(request.data)
                         
                     } catch {
-                        completionHandler(nil)
+                        onError(.internalError)
                     }
                     
-                case .failure (_):
-                    completionHandler(nil)
-                    
+                case .failure:
+                    onError(.serviceError)
                 }
         }
         

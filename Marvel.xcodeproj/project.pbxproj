@@ -44,6 +44,9 @@
 		88ECD00D234CFEFE000A9A2C /* EventObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ECD00C234CFEFE000A9A2C /* EventObject.swift */; };
 		88ECD00F234CFF32000A9A2C /* ComicObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ECD00E234CFF32000A9A2C /* ComicObject.swift */; };
 		88ECD012234D01F6000A9A2C /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ECD011234D01F6000A9A2C /* Features.swift */; };
+		88F16795234DE0D5005884FF /* MarvelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F16794234DE0D5005884FF /* MarvelError.swift */; };
+		88F16797234DE63B005884FF /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F16796234DE63B005884FF /* UIAlertControllerExtension.swift */; };
+		88F16799234DE85F005884FF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F16798234DE85F005884FF /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		88ECD00C234CFEFE000A9A2C /* EventObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObject.swift; sourceTree = "<group>"; };
 		88ECD00E234CFF32000A9A2C /* ComicObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicObject.swift; sourceTree = "<group>"; };
 		88ECD011234D01F6000A9A2C /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		88F16794234DE0D5005884FF /* MarvelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelError.swift; sourceTree = "<group>"; };
+		88F16796234DE63B005884FF /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		88F16798234DE85F005884FF /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 			children = (
 				88AB6879234B6AA100648BCD /* Response.swift */,
 				88AB6877234B69EA00648BCD /* PaginatedCharacters.swift */,
+				88F16794234DE0D5005884FF /* MarvelError.swift */,
 				88AB6875234B679400648BCD /* Character.swift */,
 				889228FB234CE85600008D1B /* SerieObject.swift */,
 				88ECD00E234CFF32000A9A2C /* ComicObject.swift */,
@@ -227,7 +234,9 @@
 			children = (
 				88C7D3B0234AB90D00678265 /* UIColorExtension.swift */,
 				88C7D3C7234ACB8500678265 /* UIViewExtension.swift */,
+				88F16796234DE63B005884FF /* UIAlertControllerExtension.swift */,
 				889228F9234CE5A400008D1B /* UIImageViewExtension.swift */,
+				88F16798234DE85F005884FF /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -451,6 +460,8 @@
 				88AB686D234B5E9900648BCD /* CharactersAPIService.swift in Sources */,
 				88AB6871234B65C400648BCD /* CharactersListViewModel.swift in Sources */,
 				88C7D386234AB25E00678265 /* SceneDelegate.swift in Sources */,
+				88F16799234DE85F005884FF /* StringExtension.swift in Sources */,
+				88F16797234DE63B005884FF /* UIAlertControllerExtension.swift in Sources */,
 				889CD205234BD656004DD858 /* ImageMarvel.swift in Sources */,
 				88ECD00D234CFEFE000A9A2C /* EventObject.swift in Sources */,
 				88C7D3B1234AB90D00678265 /* UIColorExtension.swift in Sources */,
@@ -459,6 +470,7 @@
 				88AB686B234B5B7200648BCD /* APIProtocol.swift in Sources */,
 				88ECD00B234CFEB9000A9A2C /* StoryObject.swift in Sources */,
 				88ECD00F234CFF32000A9A2C /* ComicObject.swift in Sources */,
+				88F16795234DE0D5005884FF /* MarvelError.swift in Sources */,
 				88DC6C2C234CA8D9003CF4C3 /* ExtensionSBCharactersListVC.swift in Sources */,
 				88AB6876234B679400648BCD /* Character.swift in Sources */,
 				889228F8234CD8FF00008D1B /* CharacterDetailViewModel.swift in Sources */,

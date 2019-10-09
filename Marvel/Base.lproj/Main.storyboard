@@ -189,9 +189,10 @@
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="spr-bL-pDa">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <color key="color" name="MarvelLight"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" name="MarvelDark"/>
+                        <color key="backgroundColor" name="MarvelLight"/>
                         <constraints>
                             <constraint firstItem="pQq-Ga-DHH" firstAttribute="leading" secondItem="5Vh-EB-1M1" secondAttribute="leading" id="5TM-br-FWb"/>
                             <constraint firstItem="5Vh-EB-1M1" firstAttribute="bottom" secondItem="xYY-mF-17m" secondAttribute="bottom" id="9eH-q0-S9W"/>
@@ -239,8 +240,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UT-RB-tfS">
-                                        <rect key="frame" x="10" y="10" width="126" height="38"/>
-                                        <state key="normal" title="Back" image="chevron.left">
+                                        <rect key="frame" x="10" y="10" width="103.5" height="38"/>
+                                        <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                                        <color key="tintColor" name="MarvelWhite"/>
+                                        <state key="normal" title=" Characters" image="chevron.left" catalog="system">
                                             <color key="titleColor" name="MarvelWhite"/>
                                         </state>
                                         <connections>
@@ -421,7 +424,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="V7k-yK-QdZ"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" name="MarvelDark"/>
+                        <color key="backgroundColor" name="MarvelLight"/>
                         <constraints>
                             <constraint firstItem="p0X-re-87f" firstAttribute="height" secondItem="76d-ep-Vk3" secondAttribute="height" placeholder="YES" id="6Fw-ME-5lf"/>
                             <constraint firstItem="76d-ep-Vk3" firstAttribute="bottom" secondItem="v1D-hM-HVx" secondAttribute="bottom" id="7D5-hJ-oeW"/>
@@ -473,7 +476,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" width="46" height="64"/>
+        <image name="chevron.left" catalog="system" width="46" height="64"/>
         <image name="logo" width="995.5" height="447"/>
         <image name="marvel2" width="1126" height="1600"/>
         <namedColor name="MarvelDark">

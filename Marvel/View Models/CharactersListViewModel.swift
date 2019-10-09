@@ -28,16 +28,18 @@ class CharactersListViewModel: ViewModel {
         offset = 0
     }
     
-    func fetchCharacters(searchText: String?, completionHandler: @escaping (Bool) -> Void) {
+    func fetchCharacters(searchText: String?, onSuccess: @escaping (Bool) -> Void, onError: @escaping (_ error: MarvelError) -> Void) {
         
         var text = searchText
         if text == "" {
             text = nil
         }
-        dataService.fetchCharacters(offset: characters.count, search: text) { response in
+        
+     
+        dataService.fetchCharacters(offset: characters.count, search: text, onSuccess: { response in
             
             guard let paginatedCharacters = response else {
-                completionHandler(false)
+                onError(.internalError)
                 return
             }
             
@@ -51,10 +53,13 @@ class CharactersListViewModel: ViewModel {
             }
             self.characters.append(contentsOf: paginatedCharacters.results)
             
-            completionHandler(true)
+            onSuccess(true)
             
-        }
+        }, onError: { error in
+            onError(error)
+        })
         
+    
     }
     
     /*func searchCharacters(searchText: String, completionHandler: @escaping (Bool) -> Void) {

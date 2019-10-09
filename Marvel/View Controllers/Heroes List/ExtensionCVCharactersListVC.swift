@@ -9,15 +9,13 @@
 import Foundation
 import UIKit
 
-extension CharactersListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CharactersListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if self.viewModel.getCharactersCount() == 0 {
-            // self.noResultsView.isHidden = false
             return 0
         } else {
-            // self.noResultsView.isHidden = true
             return self.viewModel.getCharactersCount()
         }
     }

@@ -8,7 +8,12 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController {
+protocol ServiceAlertProtocol {
+    func reload()
+    // func dismiss()
+}
+
+class CharactersListViewController: UIViewController, ServiceAlertProtocol {
 
     @IBOutlet weak var searchBar: CustomSearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,7 +22,6 @@ class CharactersListViewController: UIViewController {
     
     var viewModel: CharactersListViewModel = CharactersListViewModel()
     let apiService: CharactersDatabaseService = CharactersAPIService()
-    
     var searchText: String = ""
     var refreshController = UIRefreshControl()
     
@@ -34,7 +38,6 @@ class CharactersListViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
         fetchCharacters()
     }
@@ -45,37 +48,49 @@ class CharactersListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
         collectionView.collectionViewLayout = layout
-        
         refreshController.tintColor = UIColor.MarvelDark
         refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
         collectionView.refreshControl = refreshController
         
         self.searchText = searchBar.text ?? ""
         
-        searchBar.delegate = self as! UISearchBarDelegate
+        searchBar.delegate = self as UISearchBarDelegate
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
-    
     func fetchCharacters() {
-        if !refreshController.isRefreshing {
+        
+        if refreshController.isRefreshing {
             activityIndicator.isHidden = true
         } else {
             activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
         }
-        viewModel.fetchCharacters(searchText: searchText) { _ in
+        
+        viewModel.fetchCharacters(searchText: searchText, onSuccess: { _ in
             self.collectionView.reloadData()
-            self.activityIndicator.stopAnimating()
-            self.refreshController.endRefreshing()
-            self.activityIndicator.isHidden = true
-            if self.viewModel.getCharactersCount() == 0 {
-                self.noResultsView.isHidden = false
-            } else {
-                self.noResultsView.isHidden = true
+            self.finishedFetch()
+            
+        }, onError: { error in
+            switch error {
+            case .serviceError:
+                let alert = UIAlertController.serviceAlert(viewController: self)
+                self.present(alert, animated: true, completion: nil)
+            default:
+                let alert = UIAlertController.generalAlert(error: error)
+                self.present(alert, animated: true, completion: nil)
             }
-        }
+            self.finishedFetch()
+        })
+    }
+    
+    func finishedFetch() {
+        self.activityIndicator.stopAnimating()
+        self.refreshController.endRefreshing()
+        self.activityIndicator.isHidden = true
+        self.noResultsView.isHidden = self.viewModel.getCharactersCount() != 0
     }
     
     @objc func reload() {
@@ -93,7 +108,6 @@ class CharactersListViewController: UIViewController {
     
     @objc func hideKeyboard() {
         self.searchBar.endEditing(true)
-
     }
 
 }
