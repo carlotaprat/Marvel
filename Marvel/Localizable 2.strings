@@ -1,0 +1,24 @@
+// CharactersListViewController
+"no_results" = "No results found";
+
+// CharacterDetailViewController
+"comics" = "Comics";
+"series" = "Series";
+"stories" = "Stories";
+"events" = "Events";
+"no_comics" = "This character doesn't appear in any comic.";
+"no_series" = "This character doesn't appear in any serie.";
+"no_stories" = "This character doesn't appear in any story.";
+"no_events" = "There are no events related to this character.";
+"unknown" = "Unknown";
+"no_description" = "There's no description available.";
+
+// Alerts
+"internal_error_title" = "Oops!";
+"internal_error_description" = "Looks like something is wrong. Wait a bit or contact us!";
+"service_error_title" = "No internet connection";
+"service_error_description" = "Connect to a network to keep enjoying this universe.";
+"general_error_title" = "Oops!";
+"general_error_description" = "Something went wrong.";
+"ok_dialog" = "OK";
+"retry_dialog" = "Retry";
