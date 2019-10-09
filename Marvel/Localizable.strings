@@ -17,7 +17,7 @@
 "internal_error_title" = "Oops!";
 "internal_error_description" = "Looks like something is wrong. Wait a bit or contact us!";
 "service_error_title" = "No internet connection";
-"service_error_description" = "Connect to a network to keep enjoying this universe.";
+"service_error_description" = "Connect to a network to keep exploring this universe.";
 "general_error_title" = "Oops!";
 "general_error_description" = "Something went wrong.";
 "ok_dialog" = "OK";

@@ -55,7 +55,7 @@ class CharactersListViewModelTests: XCTestCase {
 }
 
 
-class MockCharactersDatabaseService: CharactersDatabaseService {
+class MockCharactersDatabaseService: CharactersDataService {
     
     var paginated: PaginatedCharacters!
     

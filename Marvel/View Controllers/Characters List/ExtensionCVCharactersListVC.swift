@@ -11,7 +11,7 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharactersListCell", for: indexPath) as? CharactersListCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: characterCellId, for: indexPath) as? CharactersListCell else {
             return UICollectionViewCell()
         }
         guard let character = self.viewModel.getCharacter(index: indexPath.row) else {
@@ -19,7 +19,7 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
         }
         let currentCharactersCount = viewModel.getCharactersCount()
         if currentCharactersCount < viewModel.getTotalCharacters() &&
-            indexPath.row == (currentCharactersCount - 6) {
+            indexPath.row == (currentCharactersCount - pagingConstant) {
             self.fetchCharacters()
         }
         cell.viewModel.setCharacter(character: character)
@@ -29,8 +29,7 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        if let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CharacterDetailVC") as? CharacterDetailViewController {
+        if let vc = UIStoryboard.init(name: storyboardName, bundle: Bundle.main).instantiateViewController(withIdentifier: characterDetailName) as? CharacterDetailViewController {
             if let char = self.viewModel.getCharacter(index: indexPath.row) {
                 vc.viewModel.setCharacter(character: char)
                 self.navigationController?.pushViewController(vc, animated: true)

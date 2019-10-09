@@ -1,8 +1,16 @@
 import Foundation
 
-class CharacterDetailViewModel: ViewModel {
+class CharacterDetailViewModel {
     
     private var character: Character?
+    private let unknownString = "unknown"
+    private let noDescriptionString = "no_description"
+    private let noComicsString = "no_comics"
+    private let noEventsString = "no_events"
+    private let noSeriesString = "no_series"
+    private let noStoriesString = "no_stories"
+    private let separator = ", "
+    private let dot = "."
     
     func setCharacter(character: Character) {
         self.character = character
@@ -14,7 +22,7 @@ class CharacterDetailViewModel: ViewModel {
             return ""
         }
         
-        return char.name ?? NSLocalizedString("unknown", comment: "")
+        return char.name ?? unknownString.localized
         
     }
     
@@ -25,9 +33,9 @@ class CharacterDetailViewModel: ViewModel {
         }
            
         if char.description == "" {
-            return NSLocalizedString("no_description", comment: "")
+            return noDescriptionString.localized
         } else {
-           return char.description ?? NSLocalizedString("no_description", comment: "")
+           return char.description ?? noDescriptionString.localized
         }
            
        }
@@ -47,26 +55,26 @@ class CharacterDetailViewModel: ViewModel {
         var notFound = ""
         switch feature {
         case .comic:
-            notFound = NSLocalizedString("no_comics", comment: "")
+            notFound = noComicsString.localized
             items = char.comics
             
         case .event:
-            notFound = NSLocalizedString("no_events", comment: "")
+            notFound = noEventsString.localized
             items = char.events
 
         case .story:
-            notFound = NSLocalizedString("no_stories", comment: "")
+            notFound = noStoriesString.localized
             items = char.stories
 
         case .serie:
-            notFound = NSLocalizedString("no_series", comment: "")
+            notFound = noSeriesString.localized
             items = char.series
 
         }
         if items.count == 0 {
             return notFound
         } else {
-            return items.joined(separator: ", ") + "."
+            return items.joined(separator: separator) + dot
         }
     }
     

@@ -1,14 +1,16 @@
 import Foundation
 
-class CharactersListViewModel: ViewModel {
+class CharactersListViewModel {
     
-    var dataService: CharactersDatabaseService = CharactersAPIService()
+    var dataService: CharactersDataService = CharactersAPIService()
     
     var characters: [Character] = []
     private var currentPage = 0
     private var total = 0
     private var limit = 0
     private var offset = 0
+    
+    private let minCurrentPage = 1
     
     var onSearch = false
     var searchingText = ""
@@ -33,13 +35,12 @@ class CharactersListViewModel: ViewModel {
                 onError(.internalError)
                 return
             }
-            
-            self.currentPage += 1
+            self.currentPage += self.minCurrentPage
             self.total = paginatedCharacters.total
             self.offset = paginatedCharacters.offset
             self.limit = paginatedCharacters.limit
             
-            if self.currentPage == 1 {
+            if self.currentPage == self.minCurrentPage {
                 self.characters.removeAll()
             }
             self.characters.append(contentsOf: paginatedCharacters.results)
@@ -59,7 +60,6 @@ class CharactersListViewModel: ViewModel {
         guard characters.count > index else {
             return nil
         }
-        
         return characters[index]
     }
     
