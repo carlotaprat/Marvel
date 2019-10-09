@@ -49,23 +49,15 @@ extension CharactersListViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print("TOUCHEEE")
         if let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CharacterDetailVC") as? CharacterDetailViewController {
-            vc.character = self.viewModel.getCharacter(index: indexPath.row)
-            self.navigationController?.pushViewController(vc, animated: true)
+            if let char = self.viewModel.getCharacter(index: indexPath.row) {
+                vc.viewModel.setCharacter(character: char)
+           // vc.character = self.viewModel.getCharacter(index: indexPath.row)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
 
         }
     }
-    
-    
-    
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-    }*/
-    
-    
-    
-    
     
     
 }

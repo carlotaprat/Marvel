@@ -15,10 +15,5 @@ class CharactersListCell: UICollectionViewCell {
             imageView.kf.setImage(with: url)
 
         }
-        // imageView.image = UIImage(na)
     }
-  /*  func setupWithHero(hero: Hero) {
-        imageView.image = UIImage()
-        nameLabel.text = hero.name
-    } */
 }

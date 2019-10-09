@@ -14,26 +14,12 @@ protocol CharactersDatabaseService {
     func fetchCharacters(offset: Int, search: String?, onSuccess: @escaping (_ response: PaginatedCharacters?) -> Void, onError: @escaping (_ error: MarvelError) -> Void)
 }
 
-struct CharactersAPIService: APIProtocol, CharactersDatabaseService {
-    
-    func paginationParameters(offset: Int) {
-        
-    }
-    
-    
-    func md5() {
-        
-    }
-    
-    func getTimestamp() {
-        
-    }
-    
+struct CharactersAPIService: CharactersDatabaseService {
 
     func fetchCharacters(offset: Int, search: String?, onSuccess: @escaping(_ pagination: PaginatedCharacters?) -> Void, onError: @escaping (_ error: MarvelError) -> Void) {
         
-        let url = String(format: getUrl(url: .characters))
-        var params = self.paginationParameters(offset: offset) as Parameters
+        let url = String(format: ServiceHelper.app.getUrl(url: .characters))
+        var params = ServiceHelper.app.paginationParameters(offset: offset) as Parameters
         
         if let searchText = search {
             params["nameStartsWith"] = searchText

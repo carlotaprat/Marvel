@@ -1,28 +1,22 @@
-// https://stackoverflow.com/questions/32163848/how-can-i-convert-a-string-to-an-md5-hash-in-ios-using-swift
+//
+//  ServiceHelper.swift
+//  Marvel
+//
+//  Created by José Luis on 09/10/2019.
+//  Copyright © 2019 carlotaprat. All rights reserved.
+//
 
 import Foundation
 import Alamofire
 import CommonCrypto
 import SwiftKeychainWrapper
 
-enum APIUrls: String {
+class ServiceHelper {
     
-    case characters = "characters"
+    static var app: ServiceHelper = {
+        return ServiceHelper()
+    }()
     
-    var getUrl: String {
-        return "http://gateway.marvel.com/v1/public/\(self.rawValue)"
-    }
-}
-
-protocol APIProtocol {
-    func getTimestamp()
-    func md5()
-    func paginationParameters(offset: Int)
-    func getUrl(url: APIUrls) -> String
-}
-
-extension APIProtocol {
-        
     func getTimestamp() -> String {
         return String(Int(Date().timeIntervalSince1970))
     }

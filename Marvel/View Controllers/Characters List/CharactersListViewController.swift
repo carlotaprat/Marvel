@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol ServiceAlertProtocol {
-    func reload()
-    // func dismiss()
-}
-
 class CharactersListViewController: UIViewController, ServiceAlertProtocol {
 
     @IBOutlet weak var searchBar: CustomSearchBar!
@@ -74,14 +69,17 @@ class CharactersListViewController: UIViewController, ServiceAlertProtocol {
             self.finishedFetch()
             
         }, onError: { error in
-            switch error {
+            AlertHelper.app.showAlert(error: error, vc: self)
+
+            /*switch error {
             case .serviceError:
+                AlertHelper.app.showAlert(error: error, vc: <#T##UIViewController#>)
                 let alert = UIAlertController.serviceAlert(viewController: self)
                 self.present(alert, animated: true, completion: nil)
             default:
                 let alert = UIAlertController.generalAlert(error: error)
                 self.present(alert, animated: true, completion: nil)
-            }
+            }*/
             self.finishedFetch()
         })
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class CharacterDetailViewController: UIViewController {
 
-    var character: Character?
+    //var character: Character?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -29,11 +29,11 @@ class CharacterDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let myCharacter = character else {
+        /*guard let myCharacter = character else {
             return
         }
         
-        viewModel.setCharacter(character: myCharacter)
+        viewModel.setCharacter(character: myCharacter)*/
         setup()
     }
     

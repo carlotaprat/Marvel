@@ -35,7 +35,6 @@ class CharactersListViewModel: ViewModel {
             text = nil
         }
         
-     
         dataService.fetchCharacters(offset: characters.count, search: text, onSuccess: { response in
             
             guard let paginatedCharacters = response else {
@@ -61,37 +60,6 @@ class CharactersListViewModel: ViewModel {
         
     
     }
-    
-    /*func searchCharacters(searchText: String, completionHandler: @escaping (Bool) -> Void) {
-        
-        onSearch = true
-        searchingText = searchText
-        
-        dataService.fetchCharacters(offset: characters.count, search: searchText) { response in
-            
-            guard let paginatedCharacters = response else {
-                completionHandler(false)
-                return
-            }
-            
-            self.currentPage += 1
-            //self.fetchInProgress = false
-            self.total = paginatedCharacters.total
-            self.offset = paginatedCharacters.offset
-            self.limit = paginatedCharacters.limit
-            
-            if self.currentPage == 1 {
-                self.characters.removeAll()
-            }
-            self.characters.append(contentsOf: paginatedCharacters.results)
-            
-            completionHandler(true)
-            
-        }
-        
-    }*/
-    
-   
     
     func getCharactersCount() -> Int {
         return characters.count
