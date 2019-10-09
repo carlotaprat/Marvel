@@ -1,11 +1,3 @@
-//
-//  HeroesListViewController.swift
-//  Marvel
-//
-//  Created by José Luis on 07/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import UIKit
 
 class CharactersListViewController: UIViewController, ServiceAlertProtocol {
@@ -70,16 +62,6 @@ class CharactersListViewController: UIViewController, ServiceAlertProtocol {
             
         }, onError: { error in
             AlertHelper.app.showAlert(error: error, vc: self)
-
-            /*switch error {
-            case .serviceError:
-                AlertHelper.app.showAlert(error: error, vc: <#T##UIViewController#>)
-                let alert = UIAlertController.serviceAlert(viewController: self)
-                self.present(alert, animated: true, completion: nil)
-            default:
-                let alert = UIAlertController.generalAlert(error: error)
-                self.present(alert, animated: true, completion: nil)
-            }*/
             self.finishedFetch()
         })
     }

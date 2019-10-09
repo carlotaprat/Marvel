@@ -1,11 +1,3 @@
-//
-//  ServiceHelper.swift
-//  Marvel
-//
-//  Created by José Luis on 09/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 import Alamofire
 import CommonCrypto
@@ -42,21 +34,18 @@ class ServiceHelper {
         
         let md5Hex =  digestData.map { String(format: "%02hhx", $0) }.joined()
         return String(md5Hex)
-        
     }
     
     func paginationParameters(offset: Int) -> Parameters {
         
         let times = String(getTimestamp())
         let md5hash = getMd5(ts: times)
-        
         let params: Parameters = [
             "apikey": KeychainWrapper.standard.string(forKey: "publicKey") ?? "",
             "ts": times,
             "hash": md5hash,
             "offset": String(offset)
         ]
-        
         return params
     }
     

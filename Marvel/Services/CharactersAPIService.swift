@@ -1,18 +1,5 @@
-//
-//  HeroesAPIService.swift
-//  Marvel
-//
-//  Created by José Luis on 07/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 import Alamofire
-
-protocol CharactersDatabaseService {
-    
-    func fetchCharacters(offset: Int, search: String?, onSuccess: @escaping (_ response: PaginatedCharacters?) -> Void, onError: @escaping (_ error: MarvelError) -> Void)
-}
 
 struct CharactersAPIService: CharactersDatabaseService {
 
@@ -35,7 +22,6 @@ struct CharactersAPIService: CharactersDatabaseService {
                         onError(.internalError)
                         return
                     }
-                    
                     do {
                         let request = try JSONDecoder().decode(Response.self, from: data)
                         onSuccess(request.data)

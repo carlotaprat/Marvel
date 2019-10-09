@@ -1,16 +1,6 @@
-//
-//  CharacterDetailViewController.swift
-//  Marvel
-//
-//  Created by José Luis on 08/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import UIKit
 
 class CharacterDetailViewController: UIViewController {
-
-    //var character: Character?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,12 +18,6 @@ class CharacterDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /*guard let myCharacter = character else {
-            return
-        }
-        
-        viewModel.setCharacter(character: myCharacter)*/
         setup()
     }
     
@@ -41,12 +25,10 @@ class CharacterDetailViewController: UIViewController {
         
         nameLabel.text = viewModel.getName().uppercased()
         descriptionLabel.text = viewModel.getDescription()
-        
         imageView.lowerShadow()
         
         if let url = URL(string: viewModel.getImage()) {
             imageView.kf.setImage(with: url)
-
         }
         
         comicsTitleLabel.text = NSLocalizedString("comics", comment: "")
@@ -63,17 +45,5 @@ class CharacterDetailViewController: UIViewController {
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

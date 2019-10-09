@@ -1,11 +1,3 @@
-//
-//  Pagination.swift
-//  Marvel
-//
-//  Created by José Luis on 07/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 
 class PaginatedCharacters: Decodable {
@@ -24,12 +16,19 @@ class PaginatedCharacters: Decodable {
         case count
     }
     
+    init(results: [Character], total: Int, offset: Int, limit: Int, count: Int) {
+        self.results.append(contentsOf: results)
+        self.total = total
+        self.offset = offset
+        self.limit = limit
+        self.count = count
+    }
+    
     required init(from decoder: Decoder) throws {
            
         let paginateContainer = try decoder.container(keyedBy: PaginateCodingKeys.self)
            
         let chars = try paginateContainer.decode([Character].self, forKey: .results)
-        print(chars)
         results.append(contentsOf: chars)
         total = try paginateContainer.decode(Int.self, forKey: .total)
         offset = try paginateContainer.decode(Int.self, forKey: .offset)

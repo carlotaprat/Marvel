@@ -19,7 +19,6 @@ class StoryObject: Decodable {
             }
         }
     }
-    
 }
 
 class Story: Decodable {

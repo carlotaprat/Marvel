@@ -1,11 +1,3 @@
-//
-//  ImagePortrait.swift
-//  Marvel
-//
-//  Created by José Luis on 07/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 
 class ImageMarvel: Decodable {
@@ -18,19 +10,26 @@ class ImageMarvel: Decodable {
         case ext = "extension"
     }
     
+    init(urlPortrait: String, urlLandscape: String) {
+        self.urlPortrait = urlPortrait
+        self.urlLandscape = urlLandscape
+    }
+    
     required init(from decoder: Decoder) throws {
-        
+
+        let imageContainer = try decoder.container(keyedBy: ImageCodingKeys.self)
+        if let path = try imageContainer.decodeIfPresent(String.self, forKey: .path),
+            let ext = try imageContainer.decodeIfPresent(String.self, forKey: .ext) {
+            generatePath(path: path, ext: ext)
+           
+        }
+    }
+    
+    func generatePath(path: String, ext: String) {
         let variantPortrait = "portrait_xlarge"
         let variantLandscape = "landscape_xlarge"
         
-        let imageContainer = try decoder.container(keyedBy: ImageCodingKeys.self)
-
-        if let path = try imageContainer.decodeIfPresent(String.self, forKey: .path),
-            let ext = try imageContainer.decodeIfPresent(String.self, forKey: .ext) {
-            self.urlPortrait = path + "/" + variantPortrait + "." + ext
-            self.urlLandscape = path + "/" + variantLandscape + "." + ext
-        }
-
+        self.urlPortrait = path + "/" + variantPortrait + "." + ext
+        self.urlLandscape = path + "/" + variantLandscape + "." + ext
     }
-    
 }

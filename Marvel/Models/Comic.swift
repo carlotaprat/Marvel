@@ -19,7 +19,6 @@ class ComicObject: Decodable {
             }
         }
     }
-    
 }
 
 class Comic: Decodable {

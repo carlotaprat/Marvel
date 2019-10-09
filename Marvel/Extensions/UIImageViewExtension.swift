@@ -1,11 +1,3 @@
-//
-//  UIImageViewExtension.swift
-//  Marvel
-//
-//  Created by José Luis on 08/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

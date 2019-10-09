@@ -1,11 +1,3 @@
-//
-//  AlertHelper.swift
-//  Marvel
-//
-//  Created by José Luis on 09/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -37,23 +29,17 @@ class AlertHelper {
         let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: .alert)
-        
         alertController.view.tintColor = UIColor.MarvelRed
-
         alertController.addAction(UIAlertAction(title: "ok_dialog".localized,
                                                 style: .cancel,
                                                 handler: nil))
-        
         if MarvelError.serviceError == error, let delegate = vc as? ServiceAlertProtocol  {
-
             let retryAction = UIAlertAction(title: "retry_dialog".localized,
                                        style: .default) { (action) in
                                         delegate.reload()
             }
-            
             alertController.addAction(retryAction)
         }
-        
         vc.present(alertController, animated: true, completion: nil)
         
     }

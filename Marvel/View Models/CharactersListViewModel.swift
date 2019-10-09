@@ -1,11 +1,3 @@
-//
-//  HeroesListViewModel.swift
-//  Marvel
-//
-//  Created by José Luis on 07/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 
 class CharactersListViewModel: ViewModel {
@@ -57,8 +49,6 @@ class CharactersListViewModel: ViewModel {
         }, onError: { error in
             onError(error)
         })
-        
-    
     }
     
     func getCharactersCount() -> Int {

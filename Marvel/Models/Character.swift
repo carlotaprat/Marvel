@@ -1,11 +1,3 @@
-//
-//  Hero.swift
-//  Marvel
-//
-//  Created by José Luis on 07/10/2019.
-//  Copyright © 2019 carlotaprat. All rights reserved.
-//
-
 import Foundation
 
 
@@ -20,9 +12,7 @@ class Character: Decodable {
     var comics: [String] = []
     var events: [String] = []
     var stories: [String] = []
-    
-    // enum CodingKeys: String, CodingKey
-    
+        
     enum CharacterCodingKeys: String, CodingKey {
         case characterId = "id"
         case name = "name"
@@ -32,6 +22,18 @@ class Character: Decodable {
         case storiesCK = "stories"
         case eventsCK = "events"
         case comicsCK = "comics"
+    }
+    
+    init(characterId: Int, name: String, description: String, picture: ImageMarvel, series: [String], comics: [String], events: [String], stories: [String]) {
+        self.characterId = characterId
+        self.name = name
+        self.description = description
+        self.picture = picture
+        self.series.append(contentsOf: series)
+        self.comics.append(contentsOf: comics)
+        self.events.append(contentsOf: events)
+        self.stories.append(contentsOf: stories)
+
     }
     
     required init(from decoder: Decoder) throws {

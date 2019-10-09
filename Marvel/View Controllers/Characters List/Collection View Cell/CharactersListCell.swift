@@ -9,11 +9,12 @@ class CharactersListCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    func setupCell(character: Character) {
-        nameLabel.text = character.name
-        if let url = URL(string: character.picture?.urlPortrait ?? "") {
+    var viewModel: CharacterListCellViewModel = CharacterListCellViewModel()
+    
+    func setupCell() {
+        nameLabel.text = viewModel.getCharacterName()
+        if let url = URL(string: viewModel.getPicturePortrait()) {
             imageView.kf.setImage(with: url)
-
         }
     }
 }

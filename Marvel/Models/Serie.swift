@@ -19,7 +19,6 @@ class SerieObject: Decodable {
             }
         }
     }
-    
 }
 
 class Serie: Decodable {

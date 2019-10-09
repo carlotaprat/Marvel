@@ -19,7 +19,6 @@ class EventObject: Decodable {
             }
         }
     }
-    
 }
 
 class Event: Decodable {
