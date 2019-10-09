@@ -19,29 +19,7 @@
                             <view contentMode="scaleToFill" id="JG2-Em-X9s">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Snf-Ph-ibY">
-                                        <rect key="frame" x="103.5" y="250.5" width="207" height="95"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Snf-Ph-ibY" secondAttribute="height" multiplier="207:95" id="7Eh-jZ-bFu"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvel2" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-QP-UiZ">
-                                        <rect key="frame" x="0.0" y="604" width="207" height="292"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="XUb-QP-UiZ" secondAttribute="height" multiplier="151:213" id="oth-bv-CAa"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" name="MarvelDark"/>
-                                <constraints>
-                                    <constraint firstItem="XUb-QP-UiZ" firstAttribute="leading" secondItem="nqD-U4-5m4" secondAttribute="leading" id="Cky-va-LsY"/>
-                                    <constraint firstItem="Snf-Ph-ibY" firstAttribute="width" secondItem="nqD-U4-5m4" secondAttribute="width" multiplier="0.5" id="XXv-dy-y2Q"/>
-                                    <constraint firstItem="XUb-QP-UiZ" firstAttribute="width" secondItem="nqD-U4-5m4" secondAttribute="width" multiplier="0.5" id="YCK-Zj-8qY"/>
-                                    <constraint firstAttribute="bottom" secondItem="XUb-QP-UiZ" secondAttribute="bottom" id="hk6-ko-7Fx"/>
-                                    <constraint firstItem="Snf-Ph-ibY" firstAttribute="centerY" secondItem="JG2-Em-X9s" secondAttribute="centerY" constant="-150" id="p52-nB-SYu"/>
-                                    <constraint firstItem="Snf-Ph-ibY" firstAttribute="centerX" secondItem="JG2-Em-X9s" secondAttribute="centerX" id="tS2-VQ-d7y"/>
-                                </constraints>
                                 <viewLayoutGuide key="safeArea" id="nqD-U4-5m4"/>
                             </view>
                         </subviews>
@@ -55,8 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="995.5" height="447"/>
-        <image name="marvel2" width="1126" height="1600"/>
         <namedColor name="MarvelDark">
             <color red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

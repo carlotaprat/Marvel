@@ -28,14 +28,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-Bz-ckf">
-                                <rect key="frame" x="103.5" y="250.5" width="207" height="95"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-Bz-ckf">
+                                <rect key="frame" x="165.5" y="429" width="83" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OkW-Bz-ckf" secondAttribute="height" multiplier="207:95" id="IGg-EN-CJz"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvel2" translatesAutoresizingMaskIntoConstraints="NO" id="61d-gO-zwn">
-                                <rect key="frame" x="0.0" y="604" width="207" height="292"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spider3" translatesAutoresizingMaskIntoConstraints="NO" id="61d-gO-zwn">
+                                <rect key="frame" x="207" y="-292" width="207" height="292"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="61d-gO-zwn" secondAttribute="height" multiplier="151:213" id="0h7-Td-uFS"/>
                                 </constraints>
@@ -43,18 +43,19 @@
                         </subviews>
                         <color key="backgroundColor" name="MarvelDark"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="61d-gO-zwn" secondAttribute="bottom" id="Hyh-Ag-Q4o"/>
+                            <constraint firstItem="61d-gO-zwn" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8Gt-VJ-r3A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="61d-gO-zwn" secondAttribute="trailing" id="GGf-Zx-Rin"/>
                             <constraint firstItem="61d-gO-zwn" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.5" id="Sgx-BE-Tkx"/>
-                            <constraint firstItem="OkW-Bz-ckf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-150" id="U82-Z6-Zmn"/>
+                            <constraint firstItem="OkW-Bz-ckf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="U82-Z6-Zmn"/>
                             <constraint firstItem="OkW-Bz-ckf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="blz-4R-NYh"/>
-                            <constraint firstItem="61d-gO-zwn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ey1-7f-iNK"/>
-                            <constraint firstItem="OkW-Bz-ckf" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.5" id="hic-UZ-lR4"/>
+                            <constraint firstItem="OkW-Bz-ckf" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.2" id="hic-UZ-lR4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="gpr-3B-qu1"/>
                     <connections>
                         <outlet property="imageView" destination="61d-gO-zwn" id="lZI-ip-a6m"/>
+                        <outlet property="logoImageView" destination="OkW-Bz-ckf" id="CgO-Er-FWP"/>
                         <segue destination="fi2-b6-YV5" kind="show" identifier="mainsegue" id="a9A-ys-uWu"/>
                     </connections>
                 </viewController>
@@ -478,7 +479,7 @@
     <resources>
         <image name="chevron.left" catalog="system" width="46" height="64"/>
         <image name="logo" width="995.5" height="447"/>
-        <image name="marvel2" width="1126" height="1600"/>
+        <image name="spider3" width="100" height="100"/>
         <namedColor name="MarvelDark">
             <color red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
